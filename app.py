@@ -43,7 +43,7 @@ def chat(request: ChatRequest):
 
     user_message = request.message.lower()
 
-    # 🚨 Improved crisis detection using regex word boundaries
+    #  Improved crisis detection using regex word boundaries
     triggered = False
     for keyword in crisis_keywords:
         if re.search(r'\b' + re.escape(keyword) + r'\b', user_message):
@@ -57,8 +57,8 @@ def chat(request: ChatRequest):
                 "You are not alone, and help is available. "
                 "I’m not able to help with this safely, but I strongly encourage you "
                 "to reach out to a mental health professional or a trusted person right now.\n\n"
-                "📞 If you are in India, call **AASRA: 91-9820466726**\n"
-                "🌍 If you're elsewhere, please contact your local emergency number or "
+                " If you are in India, call **AASRA: 91-9820466726**\n"
+                " If you're elsewhere, please contact your local emergency number or "
                 "visit findahelpline.com"
             ),
             "crisis": True
@@ -86,3 +86,4 @@ def chat(request: ChatRequest):
         "reply": response.choices[0].message.content,
         "crisis": False
     }
+
